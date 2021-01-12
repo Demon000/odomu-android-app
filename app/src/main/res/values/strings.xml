@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Odomu</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="areas_title">Areas</string>
+    <string name="add_area">Add area</string>
+    <string name="update_area">Update area</string>
+    <string name="delete_area">Delete area</string>
+    <string name="area_id">Id</string>
+    <string name="area_owner">Owner</string>
+    <string name="area_location">Location</string>
+    <string name="area_location_point">Location point</string>
+    <string name="area_category">Category</string>
+    <string name="save_area">Save area</string>
+    <string name="area_name">Name</string>
+    <string name="area_location_longitude">Longitude</string>
+    <string name="area_location_latitude">Latitude</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:id="@+id/addArea"
+        android:icon="@drawable/add_app_bar_icon"
+        android:title="@string/add_area"
+        />
+
+</menu>

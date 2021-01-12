@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item
+        android:id="@+id/saveArea"
+        android:icon="@drawable/save_app_bar_icon"
+        android:title="@string/save_area"
+        />
+</menu>

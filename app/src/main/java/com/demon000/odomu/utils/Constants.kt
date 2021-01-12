@@ -8,5 +8,6 @@ class Constants {
         val SHARED_PREFS_NAME = "Odomu"
         val AREA_ID_EXTRA_NAME = "area_id"
         val API_BASE_URL = BuildConfig.API_BASE_URL
+        val SOCKET_BASE_URL = BuildConfig.SOCKET_BASE_URL
     }
 }

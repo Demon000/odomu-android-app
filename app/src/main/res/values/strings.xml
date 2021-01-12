@@ -16,4 +16,5 @@
     <string name="area_name">Name</string>
     <string name="area_location_longitude">Longitude</string>
     <string name="area_location_latitude">Latitude</string>
+    <string name="logout">Logout</string>
 </resources>

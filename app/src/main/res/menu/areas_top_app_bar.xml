@@ -4,6 +4,12 @@
     >
 
     <item
+        android:id="@+id/logout"
+        android:icon="@drawable/logout_app_bar_icon"
+        android:title="@string/logout"
+        />
+
+    <item
         android:id="@+id/addArea"
         android:icon="@drawable/add_app_bar_icon"
         android:title="@string/add_area"

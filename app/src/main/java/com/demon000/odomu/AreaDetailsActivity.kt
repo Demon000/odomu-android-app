@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import com.demon000.odomu.dependencies.DependencyLocator
 import com.demon000.odomu.models.Area
+import com.demon000.odomu.services.SocketEvent
 import com.demon000.odomu.utils.Constants.Companion.AREA_ID_EXTRA_NAME
 import kotlinx.android.synthetic.main.activity_area_details.*
 
@@ -38,6 +39,16 @@ class AreaDetailsActivity : AppCompatActivity() {
                 }
                 else -> false
             }
+        }
+
+        DependencyLocator.notificationService.socket.on("area-updated") {
+            onAreaUpdate()
+        }
+    }
+
+    fun onAreaUpdate() {
+        runOnUiThread {
+            loadArea()
         }
     }
 

@@ -12,8 +12,14 @@ class MainActivity : AppCompatActivity() {
 
         DependencyLocator.context = this.applicationContext
 
-        startActivity(Intent(this, LoginActivity::class.java))
+        DependencyLocator.userService.getLoggedInUser().observe(this) { user ->
+            if (user == null) {
+                startActivity(Intent(this, LoginActivity::class.java))
+            } else {
+                startActivity(Intent(this, AreasActivity::class.java))
+            }
 
-        finish()
+            finish()
+        }
     }
 }

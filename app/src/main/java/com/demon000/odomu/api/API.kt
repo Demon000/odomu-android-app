@@ -1,8 +1,7 @@
 package com.demon000.odomu.api
 
 import androidx.lifecycle.MutableLiveData
-import com.google.gson.FieldNamingPolicy
-import com.google.gson.GsonBuilder
+import com.google.gson.Gson
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -11,7 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-public class API(baseURL: String) {
+public class API(baseURL: String, gson: Gson) {
     private val ACCESS_TOKEN_HEADER_NAME = "Access-Token"
     private val REFRESH_TOKEN_HEADER_NAME = "Refresh-Token"
 
@@ -20,11 +19,6 @@ public class API(baseURL: String) {
     public var refreshTokenObserver = MutableLiveData<String>()
 
     init {
-        val gson = GsonBuilder()
-            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-            .setLenient()
-            .create()
-
         val gsonConverter = GsonConverterFactory.create(gson)
 
         val loggingInterceptor = HttpLoggingInterceptor()

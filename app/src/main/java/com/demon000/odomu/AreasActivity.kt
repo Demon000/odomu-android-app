@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.demon000.odomu.dependencies.DependencyLocator
 import com.demon000.odomu.models.Area
+import com.demon000.odomu.services.SocketEvent
 import com.demon000.odomu.utils.Constants.Companion.AREA_ID_EXTRA_NAME
 import kotlinx.android.synthetic.main.activity_areas.*
 import kotlinx.android.synthetic.main.activity_areas.topAppBar
@@ -34,11 +35,32 @@ class AreasActivity : AppCompatActivity() {
 
         topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
+                R.id.logout -> {
+                    onLogoutMenuItemClick()
+                }
                 R.id.addArea -> {
                     onAddAreaMenuItemClick()
                 }
                 else -> false
             }
+        }
+
+        DependencyLocator.notificationService.socket.on("area-added") {
+            onAreasChange()
+        }
+
+        DependencyLocator.notificationService.socket.on("area-updated") {
+            onAreasChange()
+        }
+
+        DependencyLocator.notificationService.socket.on("area-deleted") {
+            onAreasChange()
+        }
+    }
+
+    fun onAreasChange() {
+        runOnUiThread {
+            loadAreas()
         }
     }
 
@@ -77,6 +99,12 @@ class AreasActivity : AppCompatActivity() {
 
     fun onAddAreaMenuItemClick(): Boolean {
         startActivity(Intent(this, AreaEditActivity::class.java))
+        return true
+    }
+
+    fun onLogoutMenuItemClick(): Boolean {
+        DependencyLocator.userService.logoutUser()
+        startActivity(Intent(this, LoginActivity::class.java))
         return true
     }
 }
